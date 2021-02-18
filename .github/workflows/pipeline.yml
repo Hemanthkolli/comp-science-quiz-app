@@ -24,8 +24,9 @@ jobs:
         access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-        repo: ${{ secrets.ECR_REPO }}
+        repo: docker/quiz-app
         region: eu-central-1
         tags: latest,${{ github.sha }}
+        create_repo: true
       # Runs a set of commands using the runners shell
       
