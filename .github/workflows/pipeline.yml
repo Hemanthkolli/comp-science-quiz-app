@@ -65,7 +65,7 @@ jobs:
           terraform apply -auto-approve
           echo "## Commit to instance repo"
           cd ..
-          ./../pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
+          ./pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
           git rebase master
           git push
 
@@ -97,6 +97,6 @@ jobs:
           terraform destroy -auto-approve
           echo "## Commit to instance repo"
           cd ..
-          ./../pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
+          ./pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
           git rebase master
           git push
