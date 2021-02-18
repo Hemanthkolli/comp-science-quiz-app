@@ -62,7 +62,7 @@ jobs:
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
-          terraform apply
+          terraform apply -auto-approve
           echo "## Commit to instance repo"
           cd ..
           ./../pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
@@ -94,7 +94,7 @@ jobs:
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
-          terraform destroy
+          terraform destroy -auto-approve
           echo "## Commit to instance repo"
           cd ..
           ./../pipeline/scripts/git-commit.sh "Pipeline: $COMMIT_MESSAGE"
