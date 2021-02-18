@@ -15,7 +15,7 @@ A 'git rebase' is executed first to fetch changes in the remote repo first.
 USAGE:
     ./pipeline/scripts/git-commit.sh <commit-message>
 EXAMPLES:
-    ./pipeline/scripts/git-commit.sh "Updated Status"
+    ./pipeline/scripts/git-commit.sh "Updated Status "
 EOF
 }
 
