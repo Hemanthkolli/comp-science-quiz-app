@@ -24,16 +24,28 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: docker build --tag quiz-app .
+      
       - name: Push to ECR
-        id: ecr
-        uses: jwalton/gh-ecr-push@v1
+        uses: kciter/aws-ecr-action@master
         with:
-          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+          repo: ${{ secrets.ECR_REPO }}
           region: eu-central-1
-          local-image: quiz-app
-          image: quiz-app:dev-${{ github.sha }} 
+          tags: latest,${{ github.sha }}
+          create_repo: true
+      
+      #- run: docker build --tag quiz-app .
+      #- name: Push to ECR
+      #  id: ecr
+      #  uses: jwalton/gh-ecr-push@v1
+      #  with:
+      #    access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #    region: eu-central-1
+      #    local-image: quiz-app
+      #    image: quiz-app:dev-${{ github.sha }} 
           
 
       # Runs a single command using the runners shell
