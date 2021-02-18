@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: docker build --tag quiz-app:latest .
+      - run: docker build --tag quiz-app .
       - name: Push to ECR
         id: ecr
         uses: jwalton/gh-ecr-push@v1
@@ -32,7 +32,9 @@ jobs:
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: eu-central-1
-          image: quiz-app:latest
+          local-image: quiz-app
+          image: quiz-app:dev-${{ github.sha }} 
+          
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
