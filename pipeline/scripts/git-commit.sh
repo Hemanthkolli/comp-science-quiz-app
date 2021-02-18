@@ -3,7 +3,7 @@
 
 # Exit on all errors and undefined vars
 set -o errexit
-set -o errtrace
+set -o errtrace || true
 set -o pipefail
 set -o nounset
 set -x
