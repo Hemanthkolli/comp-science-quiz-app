@@ -13,9 +13,9 @@ doc() {
 Executes a 'git commit' in the current folder. Uses "github actions" as committer.
 A 'git rebase' is executed first to fetch changes in the remote repo first.
 USAGE:
-    ../example-osb-ci/pipeline/scripts/git-commit.sh <commit-message>
+    ./pipeline/scripts/git-commit.sh <commit-message>
 EXAMPLES:
-    ../example-osb-ci/pipeline/scripts/git-commit.sh "Updated Status"
+    ./pipeline/scripts/git-commit.sh "Updated Status"
 EOF
 }
 
