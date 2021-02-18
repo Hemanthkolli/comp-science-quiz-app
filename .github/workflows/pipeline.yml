@@ -59,6 +59,7 @@ jobs:
         env:
           COMMIT_MESSAGE:  Added/Updated Terraform state. ci skip
         run: |
+          git config --global url.https://${{ secrets.GH_TEST_OSB }}:@github.com/.insteadOf https://github.com/
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
@@ -89,8 +90,9 @@ jobs:
         if: "contains(github.event.head_commit.message, 'destroy infra')"
         id: destroy-action
         env:
-          COMMIT_MESSAGE:  Added/Updated Terraform state. ci skip
+          COMMIT_MESSAGE:  Removed aws resource. ci skip
         run: |
+          git config --global url.https://${{ secrets.GH_TEST_OSB }}:@github.com/.insteadOf https://github.com/
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
