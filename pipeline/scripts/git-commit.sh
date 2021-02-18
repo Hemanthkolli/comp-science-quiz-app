@@ -1,5 +1,5 @@
   
-#!/bin/bash
+#!/bin/bash -e
 
 # Exit on all errors and undefined vars
 set -o errexit
