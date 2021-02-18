@@ -27,6 +27,5 @@ jobs:
         repo: ${{ secrets.ECR_REPO }}
         region: eu-central-1
         tags: latest,${{ github.sha }}
-        create_repo: true
       # Runs a set of commands using the runners shell
       
