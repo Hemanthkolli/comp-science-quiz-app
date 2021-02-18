@@ -43,6 +43,9 @@ jobs:
     container: 
       image: hemanthkolli/alpine-terraform-bash
       env:
+        GIT_USERNAME: ${{secrets.USERNAME}} 
+        GIT_PASSWORD: ${{secrets.GIT_PAT}}
+        GIT_REMOTE: https://github.com/${{secrets.USERNAME}} /comp-science-quiz-app
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}} 
         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         AWS_DEFAULT_REGION: eu-central-1
@@ -59,7 +62,7 @@ jobs:
         env:
           COMMIT_MESSAGE:  Added/Updated Terraform state. ci skip
         run: |
-          git config --global url.https://${{ secrets.GH_TEST_OSB }}:@github.com/.insteadOf https://github.com/
+          git config --global url.https://${{ secrets.GIT_PAT }}:@github.com/.insteadOf https://github.com/
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
@@ -76,6 +79,9 @@ jobs:
     container: 
       image: hemanthkolli/alpine-terraform-bash
       env:
+        GIT_USERNAME: ${{secrets.USERNAME}} 
+        GIT_PASSWORD: ${{secrets.GIT_PAT}}
+        GIT_REMOTE: https://github.com/${{secrets.USERNAME}} /comp-science-quiz-app
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}} 
         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         AWS_DEFAULT_REGION: eu-central-1
