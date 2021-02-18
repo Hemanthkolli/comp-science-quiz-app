@@ -98,7 +98,7 @@ jobs:
         env:
           COMMIT_MESSAGE:  Removed aws resource. ci skip
         run: |
-          git config --global url.https://${{ secrets.GH_TEST_OSB }}:@github.com/.insteadOf https://github.com/
+          git config --global url.https://${{ secrets.GIT_PAT }}:@github.com/.insteadOf https://github.com/
           echo "## Deploying with Terraform"
           cd terraform
           terraform init
