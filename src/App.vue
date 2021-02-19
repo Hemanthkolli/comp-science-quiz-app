@@ -55,7 +55,7 @@ export default {
     increment(isCorrect){
 
       if(isCorrect){
-        this.numCorrect++
+        this.numCorrect++ 
         console.log("Correct")
       }
       this.numTotal++
